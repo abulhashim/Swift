@@ -25,9 +25,9 @@ var anotherArray = ["Chris", "chad"]
 
 var bothArray = array + anotherArray
 bothArray += ["cora"]  // Adding data to array
-println(bothArray)
+print(bothArray)
 
-// Note: Declaring an array with let make it mutable, ...
+// Note: Declaring an array with 'let' make it mutable, ...
 
 type(of: johnDetail)  // to check datatype
 
@@ -182,6 +182,7 @@ if favoriteGenres.contains("Funck") {
 }
 
 // Iterating over a Set:
+
 for genre in favoriteGenres {
     print("\(genre)")
 }
@@ -217,7 +218,7 @@ oddDigits.intersections(evenDigits).sorted()
 
 /*
     Use substracting(_:) method to create a new set with 
-    values not in the specified set
+    values not in the specified set.
 */
 
 oddDigits.substracting(singleDigitPrimeNumbers).sorted()
