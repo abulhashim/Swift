@@ -1,15 +1,15 @@
 // Arrays:
 
 /*
-    An Array stores values of the same type
-    in an ordered list.
-*/
+ An Array stores values of the same type
+ in an ordered list.
+ */
 
 let john = "John Smith"
-let age = 25
+let age = "25"
 let mail = "contact@johnsmith.com"
 let address = "Street 06, IST, San Fransico, CA, USA"
-var johnDetail: Any = [john, age, mail, address]
+var johnDetail = [john, age, mail, address]
 
 johnDetail[0]   // Accessing data fron an array:
 
@@ -18,7 +18,7 @@ johnDetail.append(fatherName) // Adding data to an array:
 print(johnDetail)
 
 
-var array: [String] = [] // create an empty array
+var arr: [String] = [] // create an empty array
 var array = [String]()   // Same as above
 array = ["john", "david", "peter"]
 var anotherArray = ["Chris", "chad"]
@@ -37,7 +37,12 @@ threeDoubles.count
 threeDoubles.isEmpty
 
 var shoppingList = [String]()
-shoppingList[1...4] = ["Bananas", "Apple"]
+shoppingList = ["Eggs", "Milk"]
+shoppingList.append("Flour")
+shoppingList += ["Cheese", "Ketchup"]
+shoppingList[0] = "Six Eggs"
+shoppingList[2...4] = ["Bananas", "Apples"]
+
 // insert(_:at:)
 shoppingList.insert("Maple Syrup", at: 0)
 // remove(at:)
@@ -55,15 +60,13 @@ for item in shoppingList {
  If you need the integer index of each item
  as well as its value use the enumerated method,
  to iterete over the array instead.
-*/
+ */
 for (index, value) in shoppingList.enumerated() {
-    print("item" \(index + 1): \(value) )
+    print("item: \(index + 1), \(value)")
 }
 
 
-
 // Tuples:
-
 
 
 var website = (name: "Apple", url: "http://www.apple.com")
@@ -75,7 +78,7 @@ print(data.name) // Accessing data from tuple
 let http404Error = (404, "Not Found")
 
 /* You can decompose a tuple's content into separate
-constants or variables which you then access as usual: */
+ constants or variables which you then access as usual: */
 
 let (statusCode, statusMessage) = http404Error;
 
@@ -83,7 +86,7 @@ print("The status Code is \(statusCode)");
 print("The Status Message is \(statusMessage)");
 
 /* if you only need some of the tuple's values ignore parts
-of the tuple with an underscore(_) when you decompose the tuple: */
+ of the tuple with an underscore(_) when you decompose the tuple: */
 
 let (justStatusCode, _) = http404Error;
 print("Just Status Code is \(justStatusCode)")
@@ -104,7 +107,7 @@ print("The status Message is \(http200Status.description)");
 
 // Dictionaries:
 
-var emptyDict = [:]
+var emptyDict = [String:String]()
 emptyDict["statusCode"] = "OK"
 emptyDict.count
 emptyDict.isEmpty
@@ -128,7 +131,7 @@ var airports = [
 ]
 airports.updateValue("Dublin Airport", forKey: "DUB")
 
-airports["APL" = "Apple International"]
+airports["APL"] = "Apple International"
 airports["APL"] = nil
 
 airports.removeValue(forKey: "DUB")
@@ -156,16 +159,16 @@ let AirportNames = [String](airports.values)
 // Sets:
 
 /*
-    A set stores distinct values of the same type 
-    in a collection with no defined ordering.
-    You can use a set instead of an array when the 
-    order of items isn't important, or when you need 
-    to ensure that an item only appears once.
-*/
+ A set stores distinct values of the same type 
+ in a collection with no defined ordering.
+ You can use a set instead of an array when the 
+ order of items isn't important, or when you need 
+ to ensure that an item only appears once.
+ */
 
-var person = Set<Character>()
-person.insert("a")
-person = [] // that is now an empty set,
+var person1 = Set<Character>()
+person1.insert("a")
+person1 = [] // that is now an empty set,
 
 var favoriteGenres: Set<String> = [
     "Rock", "Classical", "Hip Hop"
@@ -201,33 +204,33 @@ let evenDigits: Set = [0, 2, 4, 6, 8]
 let singleDigitPrimeNumbers: Set = [1, 2, 3, 45, 7]
 
 /*
-    Use union(_:) method to create a new set with 
-    all of the values in both sets
-*/
+ Use union(_:) method to create a new set with 
+ all of the values in both sets
+ */
 
 oddDigits.union(evenDigits).sorted()
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 /*
-    Use intersection(_:) method to create a new set with 
-    only the values common to both sets
-*/
+ Use intersection(_:) method to create a new set with 
+ only the values common to both sets
+ */
 
-oddDigits.intersections(evenDigits).sorted()
+oddDigits.intersection(evenDigits).sorted()
 // []
 
 /*
-    Use substracting(_:) method to create a new set with 
-    values not in the specified set.
-*/
+ Use substracting(_:) method to create a new set with 
+ values not in the specified set.
+ */
 
-oddDigits.substracting(singleDigitPrimeNumbers).sorted()
+oddDigits.subtracting(singleDigitPrimeNumbers).sorted()
 // [1,9]
 
 /*
-    Use symmetricDifference(_:) method to create a new set with 
-    values in either sets, but not both.
-*/
+ Use symmetricDifference(_:) method to create a new set with 
+ values in either sets, but not both.
+ */
 
 oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 // [1,2,9]
@@ -240,40 +243,40 @@ let cityAnimals: Set = ["Pigeon", "Mouse"]
 
 
 /*
-    Use the 'is equal' operator (==) to determine 
-    whether the two sets contain all of the same values.
-*/
+ Use the 'is equal' operator (==) to determine 
+ whether the two sets contain all of the same values.
+ */
 
 
 /*
-    Use the isSubset(of:)method to determine 
-    whether all of the values of a set are
-    contained in a specified set.
-*/
+ Use the isSubset(of:)method to determine 
+ whether all of the values of a set are
+ contained in a specified set.
+ */
 
 houseAnimals.isSubset(of:farmAnimals)
 // true
 
 /*
-    Use the isSuperset(of:)method to determine 
-    whether a set contains all of the values
-    in a specified set.
-*/
+ Use the isSuperset(of:)method to determine 
+ whether a set contains all of the values
+ in a specified set.
+ */
 
 farmAnimals.isSuperset(of:houseAnimals)
 // true
 
 /*
-    Use the isStrictSubset(of:) or isStrictSuperset(of:) method
-    to determine whether a set is a subset or superset, but not
-    equal to a specified set.
-*/
+ Use the isStrictSubset(of:) or isStrictSuperset(of:) method
+ to determine whether a set is a subset or superset, but not
+ equal to a specified set.
+ */
 
 
 /*
-    Use the is Disjoint(with:) method to determine
-    whether two sets have no values in common.
-*/
+ Use the is Disjoint(with:) method to determine
+ whether two sets have no values in common.
+ */
 
 farmAnimals.isDisjoint(with:cityAnimals)
 // true
